@@ -34,7 +34,6 @@ void shuffle(Card cards[], int num_decks){
 	for(i=0;i<DECKSIZE * num_decks * 2;i++){
 		this=rand()%(DECKSIZE * num_decks);
 		that=rand()%(DECKSIZE * num_decks);
-		/* printf("%d and %d\n", this, that); */
 		temp = cards[this];
 		cards[this]=cards[that];
 		cards[that]=temp;
@@ -74,9 +73,7 @@ void initDeck(Card cards[], int num_decks){
 		suitCount = 0;
 		faceCount = 0;
 	}
-	/* printDeck(cards); */
 	shuffle(cards, num_decks);
-	/* printDeck(cards); */
 }
 
 int evaluateHand(Card hand[], int numCards)
@@ -248,9 +245,6 @@ int main(int argc, char *argv[]){
 		}
 	}
 
-	//printf("NUMBER OF DECKS: %i\n", num_decks);
-	//printf("NUMBER OF PLAYERS: %i\n", num_player);
-
 	Card deck[DECKSIZE * num_decks];
 	Card player[5][5];
 	Card dealer[5];
@@ -260,7 +254,6 @@ int main(int argc, char *argv[]){
 	int i, win, j;
 	//initialize deck with user given number of decks (if user specified
 	initDeck(deck, num_decks);
-	//printDeck(deck, num_decks);
 	cardsLeft = 52 * num_decks;
 	dealer[0] = deck[--cardsLeft];
 	dealer[1] = deck[--cardsLeft];
